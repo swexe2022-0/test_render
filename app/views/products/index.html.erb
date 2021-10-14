@@ -7,6 +7,7 @@
     <%= e.name %>
     <%= e.price %>
     <%= link_to '削除', product_path(e), method: :delete %>
+    <%= link_to 'カートに入れる', new_cart_item_path(product_id: e.id) %>
   </p>
 <% end %>
 

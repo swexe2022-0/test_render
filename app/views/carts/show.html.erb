@@ -1,2 +1,12 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<% @cartitems.each do |e| %>
+    <p>
+    <%= e.product.name %>
+    <%= e.product.price %>
+    <%= e.qty %>
+    <%= link_to 'カートから削除する', cart_item_path(e), method: :delete %>
+    </p>
+<% end %>
+
+<p>
+    <%= link_to '商品一覧ページ', root_path %>
+</p>

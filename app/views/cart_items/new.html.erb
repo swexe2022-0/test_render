@@ -1,0 +1,15 @@
+<%
+  if @cartitem.errors.present?
+    @cartitem.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+<% end %>
+
+<%= form_for @cartitem, url: {action: :create} do |f| %>
+  <p>商品名：<%= Product.find(@cartitem.product_id).name %></p>
+  <p>価格：<%= Product.find(@cartitem.product_id).price %></p>
+  <%= f.hidden_field :product_id %> </p>
+  <p><%= f.label :qty, '数量' %> 
+  <%= f.text_field :qty %> </p>
+  <p><%= f.submit '登録' %></p>
+<% end %>
