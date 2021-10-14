@@ -1,3 +1,7 @@
+<% if flash[:info] %>
+  <%= flash[:info] %>
+<% end %>
+
 <% @cartitems.each do |e| %>
     <p>
     <%= e.product.name %>
