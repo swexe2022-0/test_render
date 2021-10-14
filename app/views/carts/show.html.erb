@@ -2,15 +2,20 @@
   <%= flash[:info] %>
 <% end %>
 
+<% sum = 0 %>
+
 <% @cartitems.each do |e| %>
     <p>
     <%= e.product.name %>
-    <%= e.product.price %>
+    <%= e.product.price %>円
     <%= e.qty %>
     <%= link_to 'カートから削除する', cart_item_path(e), method: :delete %>
     </p>
+    <% sum += (e.product.price.to_i * e.qty.to_i) %>
 <% end %>
 
+<p>
+    合計金額：<%= sum %>円
 <p>
     <%= link_to '商品一覧ページ', root_path %>
 </p>
